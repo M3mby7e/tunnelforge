@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question / usage help
+    url: https://github.com/M3mby7e/tunnelium/discussions
+    about: Ask how to set up a tunnel or how an option works. Read docs/TUNNELING_GUIDE.md first.
+  - name: Security vulnerability
+    url: https://github.com/M3mby7e/tunnelium/security/advisories/new
+    about: Report security issues privately — do not open a public issue.

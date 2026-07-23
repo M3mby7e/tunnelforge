@@ -1,0 +1,44 @@
+[package]
+name = "tunnelium"
+version = "0.1.0"
+description = "Cross-platform SSH tunnel manager"
+authors = ["Tunnelium contributors"]
+license = "MIT"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "tunnelium_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+uuid = { version = "1.24.0", features = ["v4", "serde"] }
+thiserror = "2.0.19"
+chrono = { version = "0.4.45", default-features = false, features = ["clock", "serde"] }
+directories = "6.0.0"
+keyring = { version = "3", features = ["apple-native", "windows-native", "sync-secret-service"] }
+ts-rs = { version = "12.0.1", features = ["chrono-impl", "uuid-impl"] }
+tokio = { version = "1.53.1", features = ["rt-multi-thread", "macros", "net", "io-util", "sync", "time"] }
+russh = "0.62.3"
+futures = "0.3.33"
+tokio-util = "0.7.19"
+tauri-plugin-dialog = "2.7.2"
+if-addrs = "0.15.0"
+tauri-plugin-notification = "2.3.3"
+tauri-plugin-autostart = "2.5.1"
+
+[dev-dependencies]
+rand = "0.10.2"
+tempfile = "3.27.0"
+
